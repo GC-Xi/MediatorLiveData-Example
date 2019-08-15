@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-
+    // Interaction with combining LiveData
     private val _gateOneState = MutableLiveData(true)
     private val _gateTwoState = MutableLiveData(true)
 
@@ -23,4 +23,20 @@ class MainViewModel : ViewModel() {
     fun taggleGateTwo() {
         _gateTwoState.value = _gateTwoState.value != true
     }
+
+    // Navigation
+    private val _showDialog = MutableLiveData<Unit>()
+    private val _finish = MutableLiveData<Unit>()
+
+    val showDialog: LiveData<Unit> = _showDialog
+    val finish: LiveData<Unit> = _finish
+
+    fun showDialog() {
+        _showDialog.value = Unit
+    }
+
+    fun finish() {
+        _finish.value = Unit
+    }
+
 }
