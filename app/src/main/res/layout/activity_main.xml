@@ -31,16 +31,14 @@
         android:textSize="24dp"
         />
 
-
     <Button
-        android:id="@+id/showDialogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="16dp"
-        android:text="Show Dialog"
+            android:id="@+id/launchActivityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"
+            android:text="Launch Activity"
         />
-
 
     <Button
         android:id="@+id/finishButton"
@@ -51,7 +49,6 @@
         android:layout_margin="16dp"
         android:text="Finish"
         />
-
 
     <Button
         android:id="@+id/gateOneButton"

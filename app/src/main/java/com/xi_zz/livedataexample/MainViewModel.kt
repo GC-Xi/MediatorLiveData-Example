@@ -28,7 +28,7 @@ class MainViewModel : ViewModel() {
     private val _showDialog = MutableLiveData<Unit>()
     private val _finish = MutableLiveData<Unit>()
 
-    val showDialog: LiveData<Unit> = _showDialog
+    val launchActivity: LiveData<Unit> = _showDialog
     val finish: LiveData<Unit> = _finish
 
     fun showDialog() {

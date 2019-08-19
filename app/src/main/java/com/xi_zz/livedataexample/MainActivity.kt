@@ -1,21 +1,16 @@
 package com.xi_zz.livedataexample
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_main.andGateText
-import kotlinx.android.synthetic.main.activity_main.finishButton
-import kotlinx.android.synthetic.main.activity_main.gateOneButton
-import kotlinx.android.synthetic.main.activity_main.gateTwoButton
-import kotlinx.android.synthetic.main.activity_main.orGateText
-import kotlinx.android.synthetic.main.activity_main.showDialogButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel: MainViewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
+    private val viewModel: MainViewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,17 +25,13 @@ class MainActivity : AppCompatActivity() {
         gateTwoButton.setOnClickListener { viewModel.taggleGateTwo() }
 
         // Navigation
-        viewModel.showDialog.observe(this, Observer {
-            AlertDialog.Builder(this).apply {
-                setTitle("Hello")
-                setMessage("How are you?")
-            }.show()
+        viewModel.launchActivity.observe(this, Observer {
+            startActivity(Intent(this, HelloActivity::class.java))
         })
         viewModel.finish.observe(this, Observer { finish() })
 
-        showDialogButton.setOnClickListener { viewModel.showDialog() }
+        launchActivityButton.setOnClickListener { viewModel.showDialog() }
         finishButton.setOnClickListener { viewModel.finish() }
     }
-
 
 }
